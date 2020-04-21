@@ -1,0 +1,69 @@
+
+<p>loan-application development in angular!</p>
+<div class="container" style="text-align: left">
+  <div class="row">
+    <div class="col-md-6">
+  <h1 class="h1">{{username}}</h1><span class="h2">it is interpolation</span>
+  <h1 class="h1">{{loanAmount}}</h1><h2 class="h4">it is interpolation</h2>
+
+  <h2 class="h2">{{greetUser().toUpperCase()}}</h2>
+  <h2 class="h3">{{siteUrl}}</h2>
+  <h2 class="h4">{{siteUrl.charAt(10)}}</h2>
+  <label>
+    LoanAmount: <input   type="text" ref-Loan value= 1000000 ><span class="h3">{{Loan.value}}</span><!--<span>it it interpolation</span>--><br>
+    UserName: <input [disabled]="isDisabled" type="text" value= "nagaraju" >
+    <span class="h5">   it it property binding</span>
+  </label>
+      <h2>Two-way Binding Example</h2>
+      <label>
+        <input [(ngModel)]="fullName" />
+      </label> <br/><br/>
+      <p style="color: darkred"> {{fullName}} </p>
+  </div>
+  </div>
+  <div class="col-md-6">
+  <div>
+   <!-- <button (click)="onClick($event)">click</button><span class="h1">{{greet}}</span>-->
+    <button (click)="greet ='no event handler'">click1</button><span class="h1">{{greet}}</span>
+  </div>
+  <div>
+    <label>
+      <input #id type="text"/>
+      <button (click)="logMessage(id.value)">log</button>
+    </label>
+  </div>
+    <div>
+      <h2 *ngIf="ngifcheck; else elseBlock">
+        ngIf  block checking
+      </h2>
+      <ng-template #elseBlock>
+        <h2>
+          ifblock statments are hidden
+        </h2>
+      </ng-template>
+    </div>
+    <div *ngIf ="ngifcheck; then thenBlock; else elseBlock">
+    </div>
+    <ng-template #thenBlock>
+      <h2>
+        ifblock statments
+      </h2>
+    </ng-template>
+    <ng-template #elseBlock>
+      <h2>
+        ifblock statments are hidden
+      </h2>
+    </ng-template>
+  </div>
+  <div class="col-md-6" [ngSwitch]="color">
+    <div *ngSwitchCase="'red'" style="color: red">Your color is red</div>
+    <div *ngSwitchCase="'blue'" style="color: blue">Your color is blue</div>
+    <div *ngSwitchCase="'green'" style="color: green">Your color is green</div>
+    <div *ngSwitchDefault style="color: black">Pick Again</div>
+  </div>
+  <div class="col-md-6">
+     <h2>{{'Helo' +parentData}}</h2>
+    <button (click)="fireEvent()" >To Parent </button>
+  </div>
+</div>
+

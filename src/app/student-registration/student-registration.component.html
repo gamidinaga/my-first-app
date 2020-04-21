@@ -1,0 +1,107 @@
+<div class="container-fluid bg-info text-white">
+  <h2 style="text-align: center"> This Is Student Form</h2>
+  <div>
+    {{stdRegForm.value |json }}
+  </div>
+  <!-- Student Registration Form-->
+  <form [formGroup] ="stdRegForm">
+    <div class="row">
+      <div class="col-md-6">
+        <h4 style="color: darkred">Employee Details</h4>
+        <div class="form-group">
+          <label>RollNo:
+            <input [class.is-invalid]="stdRegForm.get('stdRollNo').invalid && stdRegForm.get('stdRollNo').touched"
+                   class="form-control" formControlName="stdRollNo"
+                   placeholder="Enter your RollNo*" type="text">
+            <!--<small class="text-danger" [class.d-none]="stdRegForm.get('stdRollNo').valid && stdRegForm.get('stdRollNo').untouched">
+              Your Roll Number is Required
+            </small>-->
+            <div *ngIf ="stdRegForm.get('stdRollNo').invalid || stdRegForm.get('stdRollNo').touched">
+              <small *ngIf="stdRegForm.get('stdRollNo').errors ?.required" class="text-danger">Rool No is Must</small>
+              <small *ngIf="stdRegForm.get('stdRollNo').errors ?.maxLength" class="text-danger">Rool No is Must be 10 digits</small>
+            </div>
+          </label>
+         <!-- <div *ngIf ="stdRegForm.get('stdRollNo').invalid && stdRegForm.get('stdRollNo').touched">
+            <small *ngIf="stdRegForm.get('stdRollNo').errors?.required" class="text-danger">Rool No is Must</small>
+            <small *ngIf="stdRegForm.get('stdRollNo').errors?.maxLength" class="text-danger">Rool No is Must be 10 digits</small>
+          </div>-->
+        </div>
+        <div class="form-group">
+          <label>Name:
+            <input class="form-control" formControlName="stdName"  placeholder="Enter your Name*" type="text">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Age:
+            <input class="form-control" formControlName="stdAge"  placeholder="Enter your Age*" type="text">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>PhoneNumber:
+            <input class="form-control" formControlName="stdPhone" placeholder="Your PhoneNumber*" type="tel">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Email:
+            <input class="form-control" formControlName="stdEmail"  placeholder="Enter your Email*" type="email">
+          </label>
+        </div>
+        <div>
+          <h5 style="color:darkred; text-align: left">Chose Gender :</h5>
+          <div class="form-check">
+            <label class="form-check-label form-check-inline">
+              <input class="form-check-input" formControlName="stdGender" type="radio" value="M" >
+              <span class="form-check-label"> Male </span>
+            </label>
+            <label class="form-check-label form-check-inline">
+              <input class="form-check-input" formControlName="stdGender" type="radio" value="F">
+              <span class="form-check-label"> Female</span>
+            </label>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <div formGroupName="stdAddress"><!--ngModelGroup="address"-->
+            <h4 style="color: darkred">Employee Address</h4>
+            <div class="form-group">
+              <label>Hno:
+                <input class="form-control" formControlName="stdHno" type="text">
+              </label>
+            </div>
+            <div class="form-group">
+              <label>City:
+                 <input class="form-control" formControlName="stdCity" type="text">
+              </label>
+            </div>
+            <div class="form-group">
+              <label>State:
+                 <input class="form-control" formControlName="stdState" type="text">
+              </label>
+            </div>
+            <div class="form-group">
+              <label>PinCode:
+                 <input class="form-control" formControlName="stdPinCode"
+                                type="text">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            <select class="custom-select" formControlName="stdBranch">
+              <option >Chose branch</option>
+              <option *ngFor="let branch of branchs">{{ branch }}</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-group">
+           <label>Percentage:
+             <input class="form-control" formControlName="stdPercentage" type="text" placeholder="percentage" >
+           </label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
