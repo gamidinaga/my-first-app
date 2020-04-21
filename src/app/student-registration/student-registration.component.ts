@@ -14,7 +14,7 @@ export class StudentRegistrationComponent implements OnInit {
   }
    stdRegForm = this.regForm.group({
      stdRollNo: [1234567890, [Validators.required, Validators.maxLength(10)] ],
-     stdName: ['Naga'],
+     stdName: ['Raju'],
      stdAge: [26],
      stdPhone : [1234567890],
      stdEmail : ['g@gmail.com'],
